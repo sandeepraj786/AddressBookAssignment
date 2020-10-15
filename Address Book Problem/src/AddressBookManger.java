@@ -137,10 +137,31 @@ import java.util.*;
 
 
 
-    @Override
-    public String deletePerson() {
-        return null;
-    }
+        @Override
+        public String deletePerson (String fileName) throws  IOException{
+            System.out.println("Enter Name for Delete");
+            String lineToRemove = sc.next();
+            File inFile = new File((path + fileName + ".txt"));
+            File tempFile = new File(path + fileName + ".tmp");
+            BufferedReader br = new BufferedReader(new FileReader(inFile));
+            PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                if (!line.trim().contains(lineToRemove)) {
+                    pw.println(line);
+                    pw.flush();
+                }
+            }
+            pw.close();
+            br.close();
+
+            inFile.delete();
+            System.out.println("Data deleted From AddressBook");
+            tempFile.renameTo(inFile);
+            System.out.println(" ");
+            return null;
+        }
 
     @Override
     public String searchPerson() {

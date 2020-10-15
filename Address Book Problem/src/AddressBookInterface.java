@@ -9,7 +9,7 @@ public interface AddressBookInterface {
 
     public String editPerson(String fileNames) throws FileNotFoundException, IOException ;
 
-    public String deletePerson() ;
+    public String deletePerson(String fileName) throws  IOException ;
 
     public String searchPerson() ;
 
