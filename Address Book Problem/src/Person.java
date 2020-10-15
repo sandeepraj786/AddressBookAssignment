@@ -1,11 +1,11 @@
 public class Person {
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String phoneNum;
-    private String city;
-    private String state;
-    private String zip;
+     String firstName;
+     String lastName;
+     String address;
+     String phoneNum;
+     String city;
+     String state;
+     String zip;
 
 
 

@@ -11,12 +11,12 @@ public interface AddressBookInterface {
 
     public String deletePerson(String fileName) throws  IOException ;
 
-    public String searchPerson() ;
+    public String searchPerson(String fileName) ;
 
-    public String sortByZipPerson() ;
+    public String sortByZipPerson(String fileName) ;
 
-    public String sortByNamePerson() ;
+    public String sortByNamePerson(String fileName) throws FileNotFoundException, IOException ;
 
-    public String display();
+    public String display(String fileName);
 
 }

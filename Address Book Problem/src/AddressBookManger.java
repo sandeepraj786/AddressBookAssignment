@@ -164,22 +164,61 @@ import java.util.*;
         }
 
     @Override
-    public String searchPerson() {
+    public String searchPerson(String fileName) {
         return null;
     }
 
     @Override
-    public String sortByZipPerson() {
+    public String sortByZipPerson(String fileName) {
         return null;
     }
 
-    @Override
-    public String sortByNamePerson() {
-        return null;
-    }
 
-    @Override
-    public String display() {
+        @Override
+        public String sortByNamePerson (String fileName) throws FileNotFoundException, IOException {
+            File inFile = new File((path + fileName + ".txt"));
+            File inFile2 = new File((path + fileName + "SortByName.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(inFile));
+            ArrayList<Person> lines = new ArrayList<Person>();
+            String currentLine1 = reader.readLine(); // for ignore the first Line
+            BufferedWriter writer = new BufferedWriter(new FileWriter(inFile2));
+            writer.write(currentLine1);
+            writer.newLine();
+            String currentLine = reader.readLine();
+            while (currentLine != null) {
+                String[] persondrtails = currentLine.split(",");
+                String firstname = persondrtails[0];
+                String lastname = persondrtails[1];
+                String city = persondrtails[2];
+                String state = persondrtails[3];
+                int zipcode = Integer.valueOf(persondrtails[4]);
+                String phonenumber = persondrtails[5];
+                lines.add(new Person(firstname, lastname, city, state, zip, phonenumber));
+                currentLine = reader.readLine();
+            }
+            Collections.sort(lines, new SortByName());
+            System.out.println("Data after Sort By Name: ");
+            for (Person P : lines) {
+                System.out.println(P.getFirstName() + " " + P.getLastName() + " " + P.getCity() + " " + P.getState() + " "
+                        + P.getZipCode() + " " + P.getPhoneNumber());
+                writer.write(P.firstName);
+                writer.write("," + P.lastName);
+                writer.write("," + P.city);
+                writer.write("," + P.state);
+                writer.write("," + P.zip);
+                writer.write("," + P.phoneNum);
+                writer.newLine();
+            }
+            System.out.println("");
+            writer.close();
+            reader.close();
+
+            return null;
+        }
+
+
+        @Override
+    public String display(String fileName) {
         return null;
     }
 }

@@ -34,7 +34,7 @@ public class AddressBook {
             bw.write(",City");
             bw.write(",State");
             bw.write(",Zipcode");
-            bw.write(",Phonenumber");
+            bw.write(",PhoneNum");
             bw.newLine();
             System.out.println("Address Book Created ");
             bw.close();
@@ -64,16 +64,16 @@ public class AddressBook {
                     addressBookManager.deletePerson(fileName);
                     break;
                 case 4:
-                    addressBookManager.searchPerson();
+                    addressBookManager.searchPerson(fileName);
                     break;
                 case 5:
-                    addressBookManager.sortByZipPerson();
+                    addressBookManager.sortByZipPerson(fileName);
                     break;
                 case 6:
-                    addressBookManager.sortByNamePerson();
+                    addressBookManager.sortByNamePerson(fileName);
                     break;
                 case 7:
-                    addressBookManager.display();
+                    addressBookManager.display(fileName);
                     break;
                 case 8:
                     addressBookManager.editPerson(fileNames);
