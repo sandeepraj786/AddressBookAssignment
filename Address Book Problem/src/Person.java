@@ -7,9 +7,7 @@ public class Person {
     private String state;
     private String zip;
 
-    public Person() {
 
-    }
 
     public Person(String firstName,String lastName,String address,String city,String zip,String phoneNum,String state){
         this.firstName=firstName;
@@ -19,6 +17,9 @@ public class Person {
         this.phoneNum=phoneNum;
         this.state=state;
         this.zip=zip;
+    }
+
+    public Person(String s, String s1, String s2, String s3, String zip, String s4) {
     }
 
     @Override
